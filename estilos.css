@@ -1,0 +1,99 @@
+
+.encabezado{
+    background-color: black;
+}
+.cuerpo{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 10% repeat(3, 1fr);
+    grid-template-areas: 
+    "t1 t1 t1"
+    "c1 c2 c3"
+    "c4 c5 c6"
+    "c7 c8 c9";
+    padding: auto;
+    margin-left: 1%;
+}
+
+.cuerpo div{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+    font-weight: bold;
+    padding: 2%;
+}
+.cuerpo img{
+    width: 100%;
+    height: 80%;
+}
+.cuerpo div:hover{
+    border: solid rgb(169, 167, 167);
+    margin: 2%;
+    box-shadow: 0 0 10px rgb(141, 142, 141);
+    scale: 1.05;
+}
+.titulo{
+    grid-area: t1;
+}
+.subtitulo{
+    margin-left: 2%;   
+}
+.dinero{
+    color: rgb(250, 3, 3);
+    margin-left: 2%;
+}
+ 
+.c1{
+    grid-area: c1;
+    padding-bottom: 3%;
+}
+
+.boton{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 90%;
+    margin-left: 4%;
+    padding-top: 2%;
+    
+}
+.boton:hover{
+    background-color: brown;
+}
+.c2{
+    grid-area: c2;
+    
+}
+.c3{
+    grid-area: c3;     
+}
+.c4{
+    grid-area: c4;    
+}
+.c5{
+    grid-area: c5; 
+}
+.c6{
+    grid-area: c6;
+}
+.c6 img{
+    margin-bottom: 7%;
+}
+.c7{
+    grid-area: c7;
+   
+}.c8{
+    grid-area: c8;
+   
+}.c9{
+    grid-area: c9;
+   
+}
+
+
+.pie{
+    background-color: brown;
+    margin-top: 7%;
+}
