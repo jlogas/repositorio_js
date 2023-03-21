@@ -1,34 +1,3 @@
-
-//console.log('hola mundo');
-
-//for (let i = 0; i < 10 ; i++) {
- //   console.log("interacion", i);
-//}
-
-//let limite = parseInt(prompt("ingresa numero"))
-
-//for (let i = 0; i < limite; i++) {
- //   console.log(i);
-//}
-
-/*let contador =0;
-while (contador < 3) {
-    console.log(contador);
-    contador ++;
-}
- console.log("fin del while");*/
-/*let contador = parseInt(prompt("pon el contador"))
- do {
-    console.log(contador);
-    contador ++;
- } while (contador < 10){
-    console.log("fin de los finales");
- };
-
-//------------------------ß funciones */
-
-
-
 let limite = parseInt(prompt("ingresa numero del curso \n" +
  " 1.Programación Web \n" + 
  " 2.guitarra \n" + 
