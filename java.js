@@ -22,7 +22,7 @@ let limite = parseInt(prompt("ingresa numero del curso \n" +
     return factura;
 }
 
- while((limite > 0) || (limite <10)){
+ if((limite > 0) || (limite <10)){
     switch (limite) {       
         case 1:
             subs = parseInt(prompt("cuantas subscripiones"))
