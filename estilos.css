@@ -1,51 +1,52 @@
 
 .encabezado{
-    background-color: black;
-}
-.cuerpo{
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 10% repeat(3, 1fr);
-    grid-template-areas: 
-    "t1 t1 t1"
-    "c1 c2 c3"
-    "c4 c5 c6"
-    "c7 c8 c9";
-    padding: auto;
-    margin-left: 1%;
-}
-
-.cuerpo div{
+    background-color: white;
     display: flex;
-    flex-direction: column;
-    margin: 3%;
-    font-weight: bold;
+    margin-left: 2%;
+    margin-right: 2%;
+
+    border-bottom: solid gray;
+}
+.logo{
+    height: 70px;
+}
+.icono{
+    height: 40px;
+    margin-top: 3%;
+    margin-left: 91%;
+}
+.imagen-cabeza img{
+    width: 100%;
+    height: 400px;
     padding: 2%;
 }
-.cuerpo img{
+.cuerpo{
+    padding: auto;
+    margin-left: 1%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.divCursos{
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    padding: 2%;
+    width: 33%;
+    height: 50%;
+}
+.divCursos img{
     width: 100%;
-    height: 80%;
+    height: 300px;
 }
 .cuerpo div:hover{
+    width: 30%;
+    height: 50%;
     border: solid rgb(169, 167, 167);
-    margin: 2%;
+    margin: 1%;
     box-shadow: 0 0 10px rgb(141, 142, 141);
     scale: 1.05;
-}
-.titulo{
-    grid-area: t1;
-}
-.subtitulo{
-    margin-left: 2%;   
-}
-.dinero{
-    color: rgb(250, 3, 3);
-    margin-left: 2%;
-}
- 
-.c1{
-    grid-area: c1;
-    padding-bottom: 3%;
 }
 
 .boton{
@@ -62,38 +63,78 @@
 .boton:hover{
     background-color: brown;
 }
-.c2{
-    grid-area: c2;
-    
-}
-.c3{
-    grid-area: c3;     
-}
-.c4{
-    grid-area: c4;    
-}
-.c5{
-    grid-area: c5; 
-}
-.c6{
-    grid-area: c6;
-}
-.c6 img{
-    margin-bottom: 7%;
-}
-.c7{
-    grid-area: c7;
-   
-}.c8{
-    grid-area: c8;
-   
-}.c9{
-    grid-area: c9;
-   
-}
 
 
 .pie{
     background-color: brown;
     margin-top: 7%;
+}
+.ventana-carrito{
+    padding: 10%;
+}
+.ventana-carrito img {
+    width: 50%;
+    height: 300px;
+
+}
+.cuerpo-ventana-carro{
+    display: flex;
+    padding: 3%;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    background-color: black;
+}
+.precio-total{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.botonArtes{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 20%;
+    margin-left: 4%;
+    padding-top: 1%;   
+}
+
+.botonArtes:hover{
+    background-color: white;
+    color: red;
+    border: solid;
+    border-color: red;
+}
+.div-filtrado-artes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.div-filtrado-artes img{
+    width: 50%;
+    height: 350px;   
+    margin-top: 5%;
+}
+.ventana-carrito{
+    background-color: black;
+    margin: 10%;
+}
+.botonCierre{
+    background-color: black;
+    color: aliceblue;
+    display: inline;
+    margin-left: 50%;
+}
+.tituloCarro{
+    background-color: black;
+    color: aliceblue;
+    display: inline;
+}
+.precio-total{
+    color: white;
+    border: solid white;
+    margin-top: 10%;
 }

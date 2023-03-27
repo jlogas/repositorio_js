@@ -1,100 +1,108 @@
-let limite = parseInt(prompt("ingresa numero del curso \n" +
- " 1.Programación Web \n" + 
- " 2.guitarra \n" + 
- " 3.Adobe \n" +
- " 4.Python \n" +
- " 5.Fotografia \n" +
- " 6.Administracion \n" +
- " 7.Creacion de video juegoos \n" +
- " 8.Metodologias Aguiles \n" +
- " 9.Procreate"))
+const cuerpo = document.getElementById("seccionCursos");
+const iconoCarro = document.getElementById("verCarro");
+const btnArtes = document.getElementById("boton-artes");
+const contenedorCarrito = document.getElementById("carritoEmerge");
+const divCuros = document.getElementById("cursos-filtrados");
+let carro =[];
+// arreglo para pintar en el html
+produtos.forEach((cursos)=>{
+ let contenedor = document.createElement("div");
+ contenedor.className = "divCursos";
+ contenedor.innerHTML =`
+    <img src="${cursos.img}">  
+    <h3> ${cursos.nombre} </h3>
+    <p> ${cursos.precio} $COP </>
+ `;
+    cuerpo.append(contenedor); 
 
- let factura = 0;
- let precio =0;
- let subs =0;
+    let btnComprar = document.createElement("button");
+    btnComprar.innerText = "comprar";
+    btnComprar.className = "boton";
+    
+    contenedor.append(btnComprar);
+//crear arreglo solo con los cursos elegidos
+    btnComprar.addEventListener("click", () =>{
+        carro.push({
+            id: cursos.id,
+            img: cursos.img,
+            nombre: cursos.nombre,
+            precio: cursos.precio, 
+        })
+            console.log(carro);
+    }
+
+    )
+    
+});
+//--------------------
+//encabezado ventana carro
+
+iconoCarro.addEventListener("click", () =>{ 
+contenedorCarrito.innerHTML=""; 
+
+contenedorCarrito.style.display = "flex";
+if (carro.length !== 0) {
+const ventanaCarrito  = document.createElement("div");
+ ventanaCarrito.className = "ventana-carrito"
+ ventanaCarrito.innerHTML = `
+  <h1 class ="tituloCarro"> cursos en tu carrito </h1>
+ `;
+ contenedorCarrito.append(ventanaCarrito); 
+
+ const btnCarrito = document.createElement("h1");
+ btnCarrito.innerText = "X";
+ btnCarrito.className ="botonCierre";
+ btnCarrito.addEventListener("click",() => {
+    ventanaCarrito.style.display = "none";
+
+ });
  
- function comprar(precio,subs) {
-    
-    for (let i = 0; i < subs; i++) {
-        factura += precio;
-         console.log(factura);
-    }
-    return factura;
-}
-    while((limite > 0) || (limite <10)){
-        switch (limite) {       
-            case 1:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(156000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de programacion por " + factura);
-                break;
-            case 2:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(100000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de guitarra por " + factura);
-                break;
-            case 3:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(156000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Adobe por " + factura);
-                break;
-            case 4:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(356000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Python por " + factura);
-                break;
-            case 5:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(74000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Fotografia por " + factura);
-                break;  
-            case 6:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(69000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Administracion por " + factura);
-                break;
-            case 7:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(250000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Creacion de video juegoos por " + factura);
-                break;  
-            case 8:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(180000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Metodologias Aguiles por " + factura);
-                break; 
-            case 9:
-                subs = parseInt(prompt("cuantas subscripiones"))
-                comprar(390000,subs);
-                console.log("compraste " + subs + " subscripciones del curso de Procreate por " + factura);
-                break; 
-            default:
-                alert("selecciona un numcodigo de curso")
-                break;
-        }
-        limite = parseInt(prompt("ingresa numero del curso \n" +
-        " 1.Programación Web \n" + 
-        " 2.guitarra \n" + 
-        " 3.Adobe \n" +
-        " 4.Python \n" +
-        " 5.Fotografia \n" +
-        " 6.Administracion \n" +
-        " 7.Creacion de video juegoos \n" +
-        " 8.Metodologias Aguiles \n" +
-        " 9.Procreate"))
-    
-    }
+ ventanaCarrito.append(btnCarrito);
 
-    
-      
-  
-  
+//recorrer carro  para el cuerpo ventana carro
+ carro.forEach((cursosEnCarro) => {
+    let cuerpoVentanaCarrito = document.createElement("div");
+    cuerpoVentanaCarrito.className = "cuerpo-ventana-carro";
+    cuerpoVentanaCarrito.innerHTML =`
+    <img src="${cursosEnCarro.img}">  
+    <h3> ${cursosEnCarro.nombre} </h3>
+    <p> ${cursosEnCarro.precio} $COP </>
+    `;
+    ventanaCarrito.append(cuerpoVentanaCarrito);
+
+ })
+    const factura = carro.reduce((suma,valor) => suma + valor.precio,0);
+// crear pie ventana carro
+    const facturatotal = document.createElement("div");
+    facturatotal.className ="precio-total"
+    facturatotal.innerHTML=`TOTAL: ${factura} $ COP`;
+    ventanaCarrito.append(facturatotal);
+}else{
+    alert("el carrito esta vacio");
+}});
+
+btnArtes.addEventListener("click", () =>{
+
+const cursosArtes = produtos.filter(curso => curso.categoria === "arte");
+console.log(cursosArtes);
+cursosArtes.forEach((cursosDeArtes)=>{
+const divFiltrado = document.createElement("div");
+divFiltrado.className ="div-filtrado-artes"
+divFiltrado.innerHTML = `
+<img src="${cursosDeArtes.img}">  
+<h3> ${cursosDeArtes.nombre} </h3>
+<p> ${cursosDeArtes.precio} $COP </>
+`;
+divCuros.append(divFiltrado);
+})
+/*const divFiltrado = document.createElement("div");
 
 
 
-    
+*/
 
-
+})
+;
 
 
 
