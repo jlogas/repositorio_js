@@ -3,37 +3,57 @@ const iconoCarro = document.getElementById("verCarro");
 const btnArtes = document.getElementById("boton-artes");
 const contenedorCarrito = document.getElementById("carritoEmerge");
 const divCuros = document.getElementById("cursos-filtrados");
+document.addEventListener("DOMContentLoaded", () =>{
+    fetchData ()
+})
+
+const fetchData = async () =>{
+    try {
+        const res = await fetch('productos.json')
+        const productos = await res.json()
+        filtrado(productos)
+        recorrer(productos)
+    } catch (error) {
+        console.log("error");
+    }
+    
+}
+
+
 let carro =[];
 // arreglo para pintar en el html
-produtos.forEach((cursos)=>{
- let contenedor = document.createElement("div");
- contenedor.className = "divCursos";
- contenedor.innerHTML =`
-    <img src="${cursos.img}">  
-    <h3> ${cursos.nombre} </h3>
-    <p> ${cursos.precio} $COP </>
- `;
-    cuerpo.append(contenedor); 
-
-    let btnComprar = document.createElement("button");
-    btnComprar.innerText = "comprar";
-    btnComprar.className = "boton";
-    
-    contenedor.append(btnComprar);
-//crear arreglo solo con los cursos elegidos
-    btnComprar.addEventListener("click", () =>{
-        carro.push({
-            id: cursos.id,
-            img: cursos.img,
-            nombre: cursos.nombre,
-            precio: cursos.precio, 
-        })
-            console.log(carro);
-    }
-
-    )
-    
-});
+const recorrer = productos =>{
+ console.log( productos);
+ productos.forEach((cursos)=>{
+    let contenedor = document.createElement("div");
+    contenedor.className = "divCursos";
+    contenedor.innerHTML =`
+       <img src="${cursos.img}">  
+       <h3> ${cursos.nombre} </h3>
+       <p> ${cursos.precio} $COP </>
+    `;
+       cuerpo.append(contenedor); 
+   
+       let btnComprar = document.createElement("button");
+       btnComprar.innerText = "comprar";
+       btnComprar.className = "boton";
+       
+       contenedor.append(btnComprar);
+   //crear arreglo solo con los cursos elegidos
+       btnComprar.addEventListener("click", () =>{
+           carro.push({
+               id: cursos.id,
+               img: cursos.img,
+               nombre: cursos.nombre,
+               precio: cursos.precio, 
+           })
+               console.log(carro);
+       }
+   
+       )
+       
+   });
+}
 //--------------------
 //encabezado ventana carro
 
@@ -81,28 +101,29 @@ const ventanaCarrito  = document.createElement("div");
     alert("el carrito esta vacio");
 }});
 
-btnArtes.addEventListener("click", () =>{
-
-const cursosArtes = produtos.filter(curso => curso.categoria === "arte");
-console.log(cursosArtes);
-cursosArtes.forEach((cursosDeArtes)=>{
-const divFiltrado = document.createElement("div");
-divFiltrado.className ="div-filtrado-artes"
-divFiltrado.innerHTML = `
-<img src="${cursosDeArtes.img}">  
-<h3> ${cursosDeArtes.nombre} </h3>
-<p> ${cursosDeArtes.precio} $COP </>
-`;
-divCuros.append(divFiltrado);
-})
-/*const divFiltrado = document.createElement("div");
-
-
-
-*/
-
-})
-;
+const filtrado = productos =>{
+    btnArtes.addEventListener("click", () =>{
+        const cursosArtes = productos.filter(curso => curso.categoria === "arte");
+        console.log(cursosArtes);
+        cursosArtes.forEach((cursosDeArtes)=>{
+        const divFiltrado = document.createElement("div");
+        divFiltrado.className ="div-filtrado-artes"
+        divFiltrado.innerHTML = `
+        <img src="${cursosDeArtes.img}">  
+        <h3> ${cursosDeArtes.nombre} </h3>
+        <p> ${cursosDeArtes.precio} $COP </>
+        `;
+        divCuros.append(divFiltrado);
+        })
+        /*const divFiltrado = document.createElement("div");
+        
+        
+        
+        */
+        
+        })
+        ;
+}
 
 
 
