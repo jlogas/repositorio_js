@@ -1,6 +1,7 @@
 const cuerpo = document.getElementById("seccionCursos");
 const iconoCarro = document.getElementById("verCarro");
 const btnArtes = document.getElementById("boton-artes");
+const btnTeg = document.getElementById("boton-tegnologia");
 const contenedorCarrito = document.getElementById("carritoEmerge");
 const divCuros = document.getElementById("cursos-filtrados");
 document.addEventListener("DOMContentLoaded", () =>{
@@ -48,6 +49,19 @@ const recorrer = productos =>{
                precio: cursos.precio, 
            })
                console.log(carro);
+
+               Toastify({
+                text: 'Agregaste al carrito ' + cursos.nombre,
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, red, white)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
        }
    
        )
@@ -98,7 +112,11 @@ const ventanaCarrito  = document.createElement("div");
     facturatotal.innerHTML=`TOTAL: ${factura} $ COP`;
     ventanaCarrito.append(facturatotal);
 }else{
-    alert("el carrito esta vacio");
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'No tienes nada en el carrito!'
+      })
 }});
 
 const filtrado = productos =>{
@@ -109,20 +127,30 @@ const filtrado = productos =>{
         const divFiltrado = document.createElement("div");
         divFiltrado.className ="div-filtrado-artes"
         divFiltrado.innerHTML = `
+        <h1> Artes </h1>
         <img src="${cursosDeArtes.img}">  
         <h3> ${cursosDeArtes.nombre} </h3>
         <p> ${cursosDeArtes.precio} $COP </>
         `;
         divCuros.append(divFiltrado);
-        })
-        /*const divFiltrado = document.createElement("div");
-        
-        
-        
-        */
-        
+        })    
         })
         ;
+    btnTeg.addEventListener("click", () =>{
+        const cursosTegno = productos.filter(curso => curso.categoria === "tegnologia");
+        console.log(cursosTegno);
+        cursosTegno.forEach((cursosDeTegno)=>{
+            const divFiltrado = document.createElement("div");
+            divFiltrado.className ="div-filtrado-artes"
+            divFiltrado.innerHTML = `
+            <h1> Tegnologia </h1>
+            <img src="${cursosDeTegno.img}">  
+            <h3> ${cursosDeTegno.nombre} </h3>
+            <p> ${cursosDeTegno.precio} $COP </>
+            `;
+            divCuros.append(divFiltrado);
+        })
+    });
 }
 
 
