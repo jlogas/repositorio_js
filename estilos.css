@@ -101,7 +101,22 @@
     margin-left: 4%;
     padding-top: 1%;   
 }
-
+.boton-tegnologia{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 20%;
+    margin-left: 4%;
+    padding-top: 1%;   
+}
+.boton-tegnologia:hover{
+    background-color: white;
+    color: red;
+    border: solid;
+    border-color: red; 
+}
 .botonArtes:hover{
     background-color: white;
     color: red;
